@@ -3,6 +3,7 @@ package com.example.petexamplespringboot.model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,6 +19,10 @@ public class Pet {
     private int age;
 
     private String species;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
+    @JsonManagedReference
+    private List<Toy> toys = new ArrayList<>();
 
     public Pet() {
     }
@@ -54,4 +59,11 @@ public class Pet {
         this.species = species;
     }
 
+    public List<Toy> getToys() {
+        return toys;
+    }
+
+    public void setToys(List<Toy> toys) {
+        this.toys = toys;
+    }
 }

@@ -14,6 +14,11 @@ public class Toy {
     private String name;
     private String brand;
 
+    @ManyToOne
+    @JoinColumn(name = "pet_id")
+    @JsonBackReference
+    private Pet pet;
+
     public Toy() {
     }
 
@@ -41,4 +46,11 @@ public class Toy {
         this.brand = brand;
     }
 
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
 }
