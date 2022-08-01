@@ -3,6 +3,7 @@ package com.example.petexamplespringboot.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,6 +15,10 @@ public class Vet {
     private long id;
 
     private String name;
+
+    @ManyToMany(mappedBy = "vets")
+    @JsonBackReference
+    private List<Pet> pets = new ArrayList<>();
 
     public Vet() {
     }
@@ -35,4 +40,11 @@ public class Vet {
     }
 
 
+    public List<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
+    }
 }

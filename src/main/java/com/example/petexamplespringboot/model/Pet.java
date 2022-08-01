@@ -24,6 +24,16 @@ public class Pet {
     @JsonManagedReference
     private List<Toy> toys = new ArrayList<>();
 
+
+    @ManyToMany
+    @JoinTable(
+            name="pet_vet",
+            joinColumns={@JoinColumn(name="pet_id")},
+            inverseJoinColumns={@JoinColumn(name="vet_id")}
+    )
+    @JsonManagedReference
+    private List<Vet> vets = new ArrayList<>();
+
     public Pet() {
     }
 
@@ -65,5 +75,13 @@ public class Pet {
 
     public void setToys(List<Toy> toys) {
         this.toys = toys;
+    }
+
+    public List<Vet> getVets() {
+        return vets;
+    }
+
+    public void setVets(List<Vet> vets) {
+        this.vets = vets;
     }
 }

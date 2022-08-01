@@ -2,11 +2,9 @@ package com.example.petexamplespringboot.controller;
 
 import com.example.petexamplespringboot.model.Pet;
 import com.example.petexamplespringboot.repos.PetRepo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -26,11 +24,11 @@ public class PetController {
         return petDao.findAll();
     }
 
-    @GetMapping("/pets")
-    private String getAllPetsView(Model vModel) {
-        vModel.addAttribute("pets", petDao.findAll());
-        return "pets/index";
-    }
+//    @GetMapping("/pets")
+//    private String getAllPetsView(Model vModel) {
+//        vModel.addAttribute("pets", petDao.findAll());
+//        return "pets/index";
+//    }
 
 
     /*
