@@ -15,10 +15,6 @@ public class Vet {
 
     private String name;
 
-    @ManyToMany(mappedBy = "vets")
-    @JsonBackReference
-    private List<Pet> pets;
-
     public Vet() {
     }
 
@@ -36,14 +32,6 @@ public class Vet {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<Pet> getPets() {
-        return pets;
-    }
-
-    public void setPets(List<Pet> pets) {
-        this.pets = pets;
     }
 
 

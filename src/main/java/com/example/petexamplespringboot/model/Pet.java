@@ -19,19 +19,6 @@ public class Pet {
 
     private String species;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
-    @JsonManagedReference
-    private List<Toy> toys;
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name="pet_vet",
-            joinColumns={@JoinColumn(name="pet_id")},
-            inverseJoinColumns={@JoinColumn(name="vet_id")}
-    )
-    @JsonManagedReference
-    private List<Vet> vets;
-
     public Pet() {
     }
 
@@ -67,19 +54,4 @@ public class Pet {
         this.species = species;
     }
 
-    public List<Toy> getToys() {
-        return toys;
-    }
-
-    public void setToys(List<Toy> toys) {
-        this.toys = toys;
-    }
-
-    public List<Vet> getVets() {
-        return vets;
-    }
-
-    public void setVets(List<Vet> vets) {
-        this.vets = vets;
-    }
 }

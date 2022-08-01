@@ -14,10 +14,6 @@ public class Toy {
     private String name;
     private String brand;
 
-    @ManyToOne
-    @JsonBackReference
-    private Pet pet;
-
     public Toy() {
     }
 
